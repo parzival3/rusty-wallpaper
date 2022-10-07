@@ -164,7 +164,7 @@ pub fn get_special_directory(csidl: i32) -> ApplicationResult<String> {
     } else {
         Err(ApplicationError::WindowsOSError {
             e: format!(
-                "SHGetSpecialFolderPathA failed: {}",
+                "SHGetSpecialFolderPathW failed: {}",
                 std::io::Error::last_os_error()
             ),
         })
@@ -194,7 +194,7 @@ fn set_wallpaper(path: &str) -> ApplicationResult<()> {
     } else {
         Err(ApplicationError::WindowsOSError {
             e: format!(
-                "SystemParametersInfoA failed: {}",
+                "SystemParametersInfoW failed: {}",
                 std::io::Error::last_os_error()
             ),
         })
